@@ -1,12 +1,15 @@
 const express = require('express');
-const tinhController = require('./controllers/tinhController');
-
+// template Engine // npm install ejs
 const app = express();
+app.set('views', './views');
+app.set('view engine','ejs');
 
 
-// Tinh toan
-app.get('/tinh/:tenPhepTinh/:soA/:soB', tinhController);
+// Route home
+app.get('/', (req, res) => { 
+    res.render('home');
+});
 
+app.get('*',(req, res) => { res.send('Not Found');  });
 
-
-app.listen(3000);
+app.listen(3000, () => console.log('Server is running '));
