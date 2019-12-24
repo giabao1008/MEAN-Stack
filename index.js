@@ -1,8 +1,12 @@
 const express = require('express');
+const reload = require('reload'); 
+
 // template Engine // npm install ejs
 const app = express();
 app.set('views', './views');
 app.set('view engine','ejs');
+
+
 
 
 // Route home
@@ -15,5 +19,8 @@ app.get('/learn', (rep, res)=> {
 } )
 
 app.get('*',(req, res) => { res.send('Not Found');  });
+
+
+reload(app);
 
 app.listen(3000, () => console.log('Server is running '));
