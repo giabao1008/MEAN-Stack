@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/learn', (rep, res)=> {
+    res.render('learn');
+} )
+
 app.get('*',(req, res) => { res.send('Not Found');  });
 
 app.listen(3000, () => console.log('Server is running '));
